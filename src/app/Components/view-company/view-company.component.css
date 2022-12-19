@@ -1,0 +1,24 @@
+/* .navbar{ */
+    /* background-color: blue; */
+    /* text-emphasis-color: red; */
+    /* left: 0; */
+/*      */
+/* } */
+
+ .heading
+ {
+    position: left;
+    width: 100%;
+    left: 0;
+    margin: auto;
+    margin-left: 0%;
+ } 
+
+.d-flex
+{
+   position: right;
+   width: 100%;
+   right: 0;
+   margin: center;
+   margin-right: 0%;
+}

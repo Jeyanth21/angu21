@@ -1,0 +1,106 @@
+
+
+<nav class="navbar " style="background-color: greenyellow; ">
+  <div class="container-fluid">
+  <h1 class="heading" style="color:white">CompanyManagement</h1>
+</div>
+<div class="d-flex justify-content-end"> 
+  <button  class="btn btn-success mx-3" routerLink="/companymanagement">Home</button>
+  <button (click)="clickAddCompany()" class="btn btn-success mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add company</button>
+  <button  class="btn btn-danger mx-3"  routerLink="/login" (click)='LogOut()' >
+    Logout</button>
+
+</div>
+ 
+ 
+  
+  
+</nav>
+
+<div class="container">
+    <h2>company details</h2>
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">UserID</th>
+            <th scope="col">CompanyName</th>
+            <th scope="col">CEO</th>
+            <th scope="col">Turnover</th>
+            <th scope="col">Stock_Exchange</th>
+            <th scope="col">Website</th>
+            <th scope="col">Action</th>
+          </tr>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of companydetail">
+            <th scope="row">{{item.userID}}</th>
+            <td>{{item.companyName}}</td>
+            <td>{{item.ceo}}</td>
+            <td>{{item.turnover}}</td>
+            <td>{{item.stock_Exchange}}</td>
+            <td>{{item.website}}</td>
+            <td> 
+              <button (click)="postComp(item);" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button>
+              <button (click)="deleteCompanyDetails(item);" class="btn btn-danger mx-3">Delete</button>
+            </td>
+          </tr>
+          <tr>
+        </tbody>
+      </table>
+</div>
+
+<div class="modal" id="exampleModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Required</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue"  class="was-validated">
+          <!-- <div class="mb-3"> -->
+            <!-- <label for="exampleInputEmail1" class="form-label">UserID</label> -->
+            <!-- <input type="number" formControlName="userID" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+          <!-- </div> -->
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">CompanyName</label>
+            <input type="test" formControlName="companyName" placeholder="Enter company Name" class="form-control" id="exampleInputPassword1" required>
+            
+               <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">CEO</label>
+            <input type="text" formControlName="ceo"   placeholder="Enter CEO name" class="form-control" id="exampleInputPassword1" required>
+            
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Turnover</label>
+            <input type="number" formControlName="turnover"  placeholder="Enter Turnover" class="form-control" id="exampleInputPassword1" required>
+            
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Stock_Exchange</label>
+            <input type="text" formControlName="stock_Exchange"   placeholder="Enter Stock Exchange" class="form-control" id="exampleInputPassword1" required>
+           
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Website</label>
+            <input type="text" formControlName="website" class="form-control"  placeholder="Enter Website" id="exampleInputPassword1" required>
+            
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <!-- <button type="submit"  (click)="postCompanyDetails();" class="btn btn-primary">Submit</button> -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" *ngIf="showAdd"  (click)="postCompanyDetails();" class="btn btn-primary">Submit</button>
+        <button type="submit"  *ngIf="showUpdate" (click)="updateCompanyd();" class="btn btn-primary">SaveChanges</button>
+      </div>
+    </div>
+  </div>

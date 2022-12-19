@@ -1,0 +1,68 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">CompanyManagement</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/viewcompany">ViewCompany</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/addcompany">AddCompany</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="centered">
+    <router-outlet></router-outlet>
+    <h1 >Welcome to Company Management</h1>
+    <p class="para">Company Management is an application where youview all Company Details Company Management is an application where youview all Company Details Company Management is an application where youview all Company Details</p>
+</div>
+   
+
+
+
+ -->
+ <nav class="navbar " style="background-color: greenyellow;">
+    <div class="container-fluid">
+    <h1 class="heading" routerLink="/viewcompany" style="color:white">CompanyManagement</h1>
+    <!-- <a class="navbar-brand" href="#">CompanyManagement</a>  -->
+    
+    
+    
+    <div class="d-flex justify-content-end"> 
+        
+            <a class="nav-link active" style="font-size: x-large;" > hi   {{user}} !!</a>
+          
+        
+        <button  class="btn btn-success mx-3" routerLink="/viewcompany" data-bs-toggle="modal"  data-bs-target="#exampleModal">
+            View Company </button>
+        <button  class="btn btn-danger mx-3"  routerLink="/login" (click)='LogOut()' data-bs-toggle="modal"  data-bs-target="#exampleModal">
+            Logout</button>
+      </div>
+          
+</div>
+</nav>
+
+
+<div class="centered">
+    <router-outlet></router-outlet>
+    
+    <h1 >Welcome to Company Management   </h1>
+    <p class="para">Company Management is an application where youview all Company Details Company Management is an application where youview all Company Details Company Management is an application where youview all Company Details</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+

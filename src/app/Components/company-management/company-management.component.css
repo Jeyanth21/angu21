@@ -1,0 +1,36 @@
+.centered {
+      /* height: 580px; */
+      /* width: 1350px; */
+/*        */
+    text-align: center;
+    /* vertical-align: middle; */
+    }
+    .para{
+        text-align: justify;
+        font-size: 20px;
+    }
+
+
+    .heading
+{
+   position: left;
+   width: 100%;
+   left: 0;
+   margin: auto;
+   margin-left: 0%;
+} 
+.d-flex
+{
+  position: right;
+  width: 100%;
+  right: 0;
+  margin: center;
+  margin-right: 0%;
+}
+    
+    
+    
+    
+    
+
+    
