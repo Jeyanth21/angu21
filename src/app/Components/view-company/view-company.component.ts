@@ -12,6 +12,9 @@ import { CD } from 'src/app/models/cd';
   styleUrls: ['./view-company.component.css']
 })
 export class ViewCompanyComponent implements OnInit {
+  
+  
+  
 
 formValue:FormGroup;
 cd:CD= new CD()

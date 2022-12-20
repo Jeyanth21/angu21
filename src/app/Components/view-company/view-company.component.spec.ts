@@ -19,7 +19,7 @@ describe('Unit Testing of ViewCompanyComponent', async () => {
     // let formvalue: FormGroup;
     // let formBuilderMock: any;
 
-    mockCompanyService = jasmine.createSpyObj(['getcompany','postCompany']);
+    mockCompanyService = jasmine.createSpyObj(['getcompany','postCompany','updateCompany','deleteCompany']);
       let company;
     beforeEach(async () => {
        company=[ {
@@ -84,142 +84,57 @@ describe('Unit Testing of ViewCompanyComponent', async () => {
       it('should call postCompany',()=>{
 
        
-        // company.id=3012,
-        // company.userID= 1008,
-        // company.companyName= "bovonto",
-        // company.ceo= "kalmark",
-        // company.turnover= 1238989,
-        // company.website= "bovonto.com",
-        // company.stock_Exchange= "jju"
 
-
+        component.cd.companyName='jey'
+        component.cd.ceo='jj'
+        component.cd.turnover=123234
+        component.cd.stock_Exchange='ccc'
+        component.cd.website='c.com'
 
         mockCompanyService.postCompany.and.returnValue(of(company))
             
         fixture.detectChanges(); 
 
+        component.postCompanyDetails();
+
         mockCompanyService.getcompany.and.returnValue(of(company)) 
            
-        expect(component.companydetail.length).toBeGreaterThan(2);
+        expect(component.companydetail.length).toEqual(3);
+      })
+
+
+
+
+      it('should call updatecompany',()=>{
+
+        
+       
+  
+        component.cd.companyName='je'
+        component.cd.ceo='jj'
+        component.cd.turnover=123234
+        component.cd.stock_Exchange='ccc'
+        component.cd.website='c.com'
+        mockCompanyService.updateCompany.and.returnValue(of(company))
+            
+        fixture.detectChanges(); 
+        component.postComp(company);
+        component.updateCompanyd();
+        mockCompanyService.getcompany.and.returnValue(of(company)) 
+           
+        expect(component.companydetail.length).toEqual(3);
+      })
+
+
+      it('should call delete company',()=>{
+        mockCompanyService.deleteCompany.and.returnValue(of(company))
+        fixture.detectChanges(); 
+        component.deleteCompanyDetails(company);
+        mockCompanyService.getcompany.and.returnValue(of(company)) 
+
+        expect(component.companydetail.length).toEqual(3);
       })
     
 })
-
-
-// mockCompanyService = jasmine.createSpyObj(['getcompany']);
-// beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//         imports:[FormsModule,
-//             ReactiveFormsModule,
-//             RouterTestingModule,],
-//         declarations:[ViewCompanyComponent],
-//         providers:[
-//             {  },
-//             {
-//               provide: CompanyService,
-//               useValue: mockCompanyService,
-//             },
-//         ]
-//     })
-    
-// })
-
-// }
-// )
-
-
-
-
-// //  describe('ViewCompanyComponent', () => {
-// //    let component: ViewCompanyComponent;
-// //    let fixture: ComponentFixture<ViewCompanyComponent>;
-
-// //   beforeEach(async () => {
-//     // await TestBed.configureTestingModule({
-//         // imports:[RouterTestingModule,],
-//     //   declarations: [ ViewCompanyComponent ],
-//     //   providers:[CompanyService]
-//     // })
-//     // .compileComponents();
-
-
-//     // fixture = TestBed.createComponent(ViewCompanyComponent);
-//     // component = fixture.componentInstance;
-//     // fixture.detectChanges();
-// //   });
-// //   it('should call getAllcompany and return res',
-// //   )
-
-// //   it('should create', () => {
-//     // expect(component).toBeTruthy();
-// //   });
-// // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // function res(res: any) {
-//     // throw new Error("Function not implemented.");
-// // }
-// // describe('ViewCompanyComponent',()=>{
-//     // let DeletecompanyData:CD[];
-//     // let component:ViewCompanyComponent;
-//     // let mockCompanyService:any;
-//     // let formBuilder:FormBuilder
-//     // beforeEach(()=>{
-//         // DeletecompanyData=[
-//             // {
-//             // id:1,
-//             // userID: 1,
-//             // companyName:'Dhoni',
-//             // turnover: 18990,
-//             //  ceo: 'gahir',
-//             //  stock_Exchange:'CCC',
-//             //  website:'dhoni.co'    
-//         // },
-//         // {
-//             // id:2,
-//             // userID: 2,
-//             // companyName:'Dni',
-//             // turnover: 189943230,
-//             //  ceo: 'gahidsdr',
-//             //  stock_Exchange:'CCD',
-//             //  website:'dhoni.cfdo'    
-//         // },
-//     // ]
-    
-//     // component=new ViewCompanyComponent(mockCompanyService, formBuilder);
-//     // });
-
-//     // describe('delete by id',()=>{
-//         // it('should delete the data from table',()=>{
-//             // mockCompanyService.deleteCompany.and.retrunValue(of(true));
-//             // component.companydetail=DeletecompanyData;
-//             // component.deleteCompanyDetails(1)
-
-//             // expect(component.companydetail.length).toBe(1);
-//         // })
-//     // })
-
-// // }) 
-
 
 
